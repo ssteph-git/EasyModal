@@ -1,7 +1,9 @@
 import "../css/style.css";
 import React from "react";
+import { useRef } from 'react';
 
 const Modal = ({ yourText, open, close, style }) => {
+    const modalRef = useRef(null);
     let styleBackground;
     let styleModal;
 
@@ -16,7 +18,12 @@ const Modal = ({ yourText, open, close, style }) => {
 
   if (open == true) {
     return (
-      <div className="background-modal" style={styleBackground} onClick={close}>
+      <div className="background-modal" style={styleBackground} onClick={(event) => {
+        if (modalRef.current === event.target) {
+          close();
+        }
+      }}
+      ref={modalRef}>
         <div className="modal-content" style={styleModal}>
           <span className="close" onClick={close}>
             &times;
