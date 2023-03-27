@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+## 0.Prerequisites
+- Node JS
+## 1.Install the package
+- npm install @ssteph/easymodal
+## 2.Import the component (in your jsx)
+```js 
+import Modal from '@ssteph/easymodal/dist/components/Modal';
+```
+- use ``` <Modal/> ``` to display it in your component.
+## 3.Basic example
+```js 
+import Modal from '@ssteph/easymodal/dist/components/Modal';
+import { useState } from "react";
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+function MyComponent() {
 
-## Available Scripts
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-In the project directory, you can run:
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
 
-### `npm start`
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  return (
+    <>
+    <button onClick={handleModalOpen}>Test</button>
+    <Modal
+          yourText="Insert your text here..."
+          open={isModalOpen}
+          close={handleModalClose}
+        />
+    </>
+  );
+}
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 4.Example with styles defined
+### 4.1.config
+- You can use an object for configuring the modal style:
+```js 
+const config =[{"background":{
+    backgroundColor: "rgba(0, 120, 0, 0.6)",
+}},{"modal":{
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    padding: "20px",
+    width: "500px",
+    height: "auto",
+}}];
+```
+```
+      - to change the background of the modal:
+        - modify the backgrouncolor property
+      - to change the modal
+        - modify or add property in "modal" property
+```
+### 4.2.example
+```js
+import Modal from '@ssteph/easymodal/dist/components/Modal';
+import { useState } from "react";
 
-### `npm test`
+function MyComponent() {
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-### `npm run build`
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  const config =[{"background":{
+    backgroundColor: "rgba(0, 120, 0, 0.6)",
+}},{"modal":{
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    padding: "20px",
+    width: "500px",
+    height: "auto",
+}}];
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  return (
+    <>
+    <button onClick={handleModalOpen}>Test</button>
+    <Modal
+          yourText="Insert your text here..."
+          open={isModalOpen}
+          close={handleModalClose}
+          style={config}
+        />
+    </>
+  );
+}
+```
