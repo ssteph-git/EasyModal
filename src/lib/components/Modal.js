@@ -16,7 +16,7 @@ const Modal = ({ yourText, open, close, style }) => {
 
   if (open == true) {
     return (
-      <div className="background-modal" style={styleBackground}>
+      <div className="background-modal" style={styleBackground} onClick={close}>
         <div className="modal-content" style={styleModal}>
           <span className="close" onClick={close}>
             &times;
