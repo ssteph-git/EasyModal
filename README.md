@@ -1,3 +1,5 @@
+Display a modal when needed.
+
 ## 0.Prerequisites
 - Node JS
 ## 1.Install the package

@@ -4,6 +4,8 @@ import React from "react";
 const Modal = ({ yourText, open, close, style }) => {
     let styleBackground;
     let styleModal;
+
+    //Check if a style has been added
     if(!style){
         styleBackground = null;
         styleModal = null;
