@@ -14,6 +14,8 @@ var Modal = function Modal(_ref) {
     style = _ref.style;
   var styleBackground;
   var styleModal;
+
+  //Check if a style has been added
   if (!style) {
     styleBackground = null;
     styleModal = null;
@@ -24,7 +26,8 @@ var Modal = function Modal(_ref) {
   if (open == true) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "background-modal",
-      style: styleBackground
+      style: styleBackground,
+      onClick: close
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "modal-content",
       style: styleModal
